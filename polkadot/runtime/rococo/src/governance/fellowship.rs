@@ -25,7 +25,7 @@ use crate::{CENTS, DAYS};
 parameter_types! {
 	pub const AlarmInterval: BlockNumber = 1;
 	pub const SubmissionDeposit: Balance = 0;
-	pub const UndecidingTimeout: BlockNumber = 7 * DAYS;
+	pub const UndecidingTimeout: BlockNumber = 7 * MINUTES;
 }
 
 pub struct TracksInfo;
@@ -41,7 +41,7 @@ impl pallet_referenda::TracksInfo<Balance, BlockNumber> for TracksInfo {
 					max_deciding: 10,
 					decision_deposit: 100 * 3 * CENTS,
 					prepare_period: 30 * MINUTES,
-					decision_period: 7 * DAYS,
+					decision_period: 60 * MINUTES,
 					confirm_period: 30 * MINUTES,
 					min_enactment_period: 1 * MINUTES,
 					min_approval: pallet_referenda::Curve::LinearDecreasing {
@@ -63,7 +63,7 @@ impl pallet_referenda::TracksInfo<Balance, BlockNumber> for TracksInfo {
 					max_deciding: 10,
 					decision_deposit: 10 * 3 * CENTS,
 					prepare_period: 30 * MINUTES,
-					decision_period: 7 * DAYS,
+					decision_period: 60 * MINUTES,
 					confirm_period: 30 * MINUTES,
 					min_enactment_period: 1 * MINUTES,
 					min_approval: pallet_referenda::Curve::LinearDecreasing {
@@ -85,7 +85,7 @@ impl pallet_referenda::TracksInfo<Balance, BlockNumber> for TracksInfo {
 					max_deciding: 10,
 					decision_deposit: 10 * 3 * CENTS,
 					prepare_period: 30 * MINUTES,
-					decision_period: 7 * DAYS,
+					decision_period: 60 * MINUTES,
 					confirm_period: 30 * MINUTES,
 					min_enactment_period: 1 * MINUTES,
 					min_approval: pallet_referenda::Curve::LinearDecreasing {
@@ -107,7 +107,7 @@ impl pallet_referenda::TracksInfo<Balance, BlockNumber> for TracksInfo {
 					max_deciding: 10,
 					decision_deposit: 10 * 3 * CENTS,
 					prepare_period: 30 * MINUTES,
-					decision_period: 7 * DAYS,
+					decision_period: 60 * MINUTES,
 					confirm_period: 30 * MINUTES,
 					min_enactment_period: 1 * MINUTES,
 					min_approval: pallet_referenda::Curve::LinearDecreasing {
@@ -129,7 +129,7 @@ impl pallet_referenda::TracksInfo<Balance, BlockNumber> for TracksInfo {
 					max_deciding: 10,
 					decision_deposit: 10 * 3 * CENTS,
 					prepare_period: 30 * MINUTES,
-					decision_period: 7 * DAYS,
+					decision_period: 60 * MINUTES,
 					confirm_period: 30 * MINUTES,
 					min_enactment_period: 1 * MINUTES,
 					min_approval: pallet_referenda::Curve::LinearDecreasing {
@@ -151,7 +151,7 @@ impl pallet_referenda::TracksInfo<Balance, BlockNumber> for TracksInfo {
 					max_deciding: 10,
 					decision_deposit: 1 * 3 * CENTS,
 					prepare_period: 30 * MINUTES,
-					decision_period: 7 * DAYS,
+					decision_period: 60 * MINUTES,
 					confirm_period: 30 * MINUTES,
 					min_enactment_period: 1 * MINUTES,
 					min_approval: pallet_referenda::Curve::LinearDecreasing {
@@ -173,7 +173,7 @@ impl pallet_referenda::TracksInfo<Balance, BlockNumber> for TracksInfo {
 					max_deciding: 10,
 					decision_deposit: 1 * 3 * CENTS,
 					prepare_period: 30 * MINUTES,
-					decision_period: 7 * DAYS,
+					decision_period: 60 * MINUTES,
 					confirm_period: 30 * MINUTES,
 					min_enactment_period: 1 * MINUTES,
 					min_approval: pallet_referenda::Curve::LinearDecreasing {
@@ -195,7 +195,7 @@ impl pallet_referenda::TracksInfo<Balance, BlockNumber> for TracksInfo {
 					max_deciding: 10,
 					decision_deposit: 1 * 3 * CENTS,
 					prepare_period: 30 * MINUTES,
-					decision_period: 7 * DAYS,
+					decision_period: 60 * MINUTES,
 					confirm_period: 30 * MINUTES,
 					min_enactment_period: 1 * MINUTES,
 					min_approval: pallet_referenda::Curve::LinearDecreasing {
@@ -217,7 +217,7 @@ impl pallet_referenda::TracksInfo<Balance, BlockNumber> for TracksInfo {
 					max_deciding: 10,
 					decision_deposit: 1 * 3 * CENTS,
 					prepare_period: 30 * MINUTES,
-					decision_period: 7 * DAYS,
+					decision_period: 60 * MINUTES,
 					confirm_period: 30 * MINUTES,
 					min_enactment_period: 1 * MINUTES,
 					min_approval: pallet_referenda::Curve::LinearDecreasing {
@@ -239,7 +239,7 @@ impl pallet_referenda::TracksInfo<Balance, BlockNumber> for TracksInfo {
 					max_deciding: 10,
 					decision_deposit: 1 * 3 * CENTS,
 					prepare_period: 30 * MINUTES,
-					decision_period: 7 * DAYS,
+					decision_period: 60 * MINUTES,
 					confirm_period: 30 * MINUTES,
 					min_enactment_period: 1 * MINUTES,
 					min_approval: pallet_referenda::Curve::LinearDecreasing {

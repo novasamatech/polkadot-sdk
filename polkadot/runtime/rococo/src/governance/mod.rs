@@ -35,7 +35,7 @@ mod fellowship;
 pub use fellowship::{FellowshipCollectiveInstance, FellowshipReferendaInstance};
 
 parameter_types! {
-	pub const VoteLockingPeriod: BlockNumber = 7 * DAYS;
+	pub const VoteLockingPeriod: BlockNumber = 7 * MINUTES;
 }
 
 impl pallet_conviction_voting::Config for Runtime {
@@ -52,7 +52,7 @@ impl pallet_conviction_voting::Config for Runtime {
 parameter_types! {
 	pub const AlarmInterval: BlockNumber = 1;
 	pub const SubmissionDeposit: Balance = 1 * 3 * CENTS;
-	pub const UndecidingTimeout: BlockNumber = 14 * DAYS;
+	pub const UndecidingTimeout: BlockNumber = 14 * MINUTES;
 }
 
 parameter_types! {
