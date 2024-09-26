@@ -220,6 +220,10 @@ fn load_spec(id: &str) -> std::result::Result<Box<dyn ChainSpec>, String> {
 			&include_bytes!("../chain-specs/collectives-westend.json")[..],
 		)?),
 
+		// -- Rococo Collectives
+		"collectives-rococo-local" =>
+			Box::new(chain_spec::collectives::collectives_rococo_local_config()),
+
 		// -- Contracts on Rococo
 		"contracts-rococo-dev" =>
 			Box::new(chain_spec::contracts::contracts_rococo_development_config()),
