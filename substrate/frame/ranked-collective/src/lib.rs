@@ -726,6 +726,63 @@ pub mod pallet {
 
 			Ok(())
 		}
+
+		/// Add a member without any origin checks.
+		/// This is a dangerous function that should only be used in testing environments.
+		///
+		/// - `who`: Account of non-member which will become a member.
+		///
+		/// Weight: `O(1)`
+		#[pallet::call_index(7)]
+		#[pallet::weight(T::WeightInfo::add_member())]
+		pub fn add_member_no_check(origin: OriginFor<T>, who: AccountIdLookupOf<T>) -> DispatchResult {
+			ensure_signed(origin)?;
+			let who = T::Lookup::lookup(who)?;
+			Self::do_add_member(who, true)
+		}
+
+		/// Remove a member without any origin checks.
+		/// This is a dangerous function that should only be used in testing environments.
+		///
+		/// - `who`: Account of existing member.
+		///
+		/// Weight: `O(1)`
+		#[pallet::call_index(9)]
+		#[pallet::weight(T::WeightInfo::remove_member(0))]
+		pub fn remove_member_no_check(origin: OriginFor<T>, who: AccountIdLookupOf<T>) -> DispatchResult {
+			ensure_signed(origin)?;
+			let who = T::Lookup::lookup(who)?;
+			Self::do_remove_member_from_rank(&who, 0)
+		}
+
+		/// Promote a member without any origin checks.
+		/// This is a dangerous function that should only be used in testing environments.
+		///
+		/// - `who`: Account of existing member.
+		///
+		/// Weight: `O(1)`
+		#[pallet::call_index(8)]
+		#[pallet::weight(T::WeightInfo::promote_member(0))]
+		pub fn promote_member_no_check(origin: OriginFor<T>, who: AccountIdLookupOf<T>) -> DispatchResult {
+			let max_rank = 10u16;
+			let who = T::Lookup::lookup(who)?;
+			Self::do_promote_member(who, Some(max_rank), true)
+		}
+
+		// Remove a member from a rank without any origin checks.
+		// This is a dangerous function that should only be used in testing environments.
+		///
+		/// - `who`: Account of existing member.
+		/// - `rank`: Rank of the member to be removed.
+		///
+		/// Weight: `O(1)`
+		#[pallet::call_index(10)]
+		#[pallet::weight(T::WeightInfo::remove_member(0))]
+		pub fn remove_member_from_rank_no_check(origin: OriginFor<T>, who: AccountIdLookupOf<T>, rank: Rank) -> DispatchResult {
+			ensure_signed(origin)?;
+			let who = T::Lookup::lookup(who)?;
+			Self::do_remove_member_from_rank(&who, rank)
+		}
 	}
 
 	#[pallet::hooks]

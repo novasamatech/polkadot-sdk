@@ -79,8 +79,8 @@ impl Convert<TrackId, Rank> for MinRankOfClass {
 const RETAIN_MAX_DECIDING: u32 = 25;
 const RETAIN_DECISION_DEPOSIT: Balance = 5 * DOLLARS;
 const RETAIN_PREPARE_PERIOD: BlockNumber = 0;
-const RETAIN_DECISION_PERIOD: BlockNumber = 14 * DAYS;
-const RETAIN_CONFIRM_PERIOD: BlockNumber = 1 * HOURS;
+const RETAIN_DECISION_PERIOD: BlockNumber = 10 * MINUTES;
+const RETAIN_CONFIRM_PERIOD: BlockNumber = 10 * MINUTES;
 const RETAIN_MIN_ENACTMENT_PERIOD: BlockNumber = 0;
 const RETAIN_MIN_APPROVAL: pallet_referenda::Curve = pallet_referenda::Curve::LinearDecreasing {
 	length: Perbill::from_percent(100),
@@ -96,8 +96,8 @@ const RETAIN_MIN_SUPPORT: pallet_referenda::Curve = pallet_referenda::Curve::Lin
 const PROMOTE_MAX_DECIDING: u32 = 10;
 const PROMOTE_DECISION_DEPOSIT: Balance = 5 * DOLLARS;
 const PROMOTE_PREPARE_PERIOD: BlockNumber = 0;
-const PROMOTE_DECISION_PERIOD: BlockNumber = 30 * DAYS;
-const PROMOTE_CONFIRM_PERIOD: BlockNumber = 1 * HOURS;
+const PROMOTE_DECISION_PERIOD: BlockNumber = 10 * MINUTES;
+const PROMOTE_CONFIRM_PERIOD: BlockNumber = 10 * MINUTES;
 const PROMOTE_MIN_ENACTMENT_PERIOD: BlockNumber = 0;
 const PROMOTE_MIN_APPROVAL: pallet_referenda::Curve = pallet_referenda::Curve::LinearDecreasing {
 	length: Perbill::from_percent(100),
@@ -123,9 +123,9 @@ impl pallet_referenda::TracksInfo<Balance, BlockNumber> for TracksInfo {
 					name: "members",
 					max_deciding: 10,
 					decision_deposit: 5 * DOLLARS,
-					prepare_period: 30 * MINUTES,
-					decision_period: 1 * DAYS,
-					confirm_period: 30 * MINUTES,
+					prepare_period: 10 * MINUTES,
+					decision_period: 30 * MINUTES,
+					confirm_period: 10 * MINUTES,
 					min_enactment_period: 5 * MINUTES,
 					min_approval: pallet_referenda::Curve::LinearDecreasing {
 						length: Perbill::from_percent(100),
@@ -145,9 +145,9 @@ impl pallet_referenda::TracksInfo<Balance, BlockNumber> for TracksInfo {
 					name: "proficient members",
 					max_deciding: 10,
 					decision_deposit: 5 * DOLLARS,
-					prepare_period: 30 * MINUTES,
-					decision_period: 1 * DAYS,
-					confirm_period: 30 * MINUTES,
+					prepare_period: 10 * MINUTES,
+					decision_period: 30 * MINUTES,
+					confirm_period: 10 * MINUTES,
 					min_enactment_period: 5 * MINUTES,
 					min_approval: pallet_referenda::Curve::LinearDecreasing {
 						length: Perbill::from_percent(100),
@@ -168,8 +168,8 @@ impl pallet_referenda::TracksInfo<Balance, BlockNumber> for TracksInfo {
 					max_deciding: 10,
 					decision_deposit: 5 * DOLLARS,
 					prepare_period: 30 * MINUTES,
-					decision_period: 1 * DAYS,
-					confirm_period: 30 * MINUTES,
+					decision_period: 30 * MINUTES,
+					confirm_period: 10 * MINUTES,
 					min_enactment_period: 5 * MINUTES,
 					min_approval: pallet_referenda::Curve::LinearDecreasing {
 						length: Perbill::from_percent(100),
@@ -190,8 +190,8 @@ impl pallet_referenda::TracksInfo<Balance, BlockNumber> for TracksInfo {
 					max_deciding: 10,
 					decision_deposit: 5 * DOLLARS,
 					prepare_period: 30 * MINUTES,
-					decision_period: 1 * DAYS,
-					confirm_period: 30 * MINUTES,
+					decision_period: 30 * MINUTES,
+					confirm_period: 10 * MINUTES,
 					min_enactment_period: 5 * MINUTES,
 					min_approval: pallet_referenda::Curve::LinearDecreasing {
 						length: Perbill::from_percent(100),
@@ -212,8 +212,8 @@ impl pallet_referenda::TracksInfo<Balance, BlockNumber> for TracksInfo {
 					max_deciding: 10,
 					decision_deposit: 5 * DOLLARS,
 					prepare_period: 30 * MINUTES,
-					decision_period: 1 * DAYS,
-					confirm_period: 30 * MINUTES,
+					decision_period: 30 * MINUTES,
+					confirm_period: 10 * MINUTES,
 					min_enactment_period: 5 * MINUTES,
 					min_approval: pallet_referenda::Curve::LinearDecreasing {
 						length: Perbill::from_percent(100),
@@ -234,8 +234,8 @@ impl pallet_referenda::TracksInfo<Balance, BlockNumber> for TracksInfo {
 					max_deciding: 10,
 					decision_deposit: 5 * DOLLARS,
 					prepare_period: 30 * MINUTES,
-					decision_period: 1 * DAYS,
-					confirm_period: 30 * MINUTES,
+					decision_period: 30 * MINUTES,
+					confirm_period: 10 * MINUTES,
 					min_enactment_period: 5 * MINUTES,
 					min_approval: pallet_referenda::Curve::LinearDecreasing {
 						length: Perbill::from_percent(100),
@@ -256,8 +256,8 @@ impl pallet_referenda::TracksInfo<Balance, BlockNumber> for TracksInfo {
 					max_deciding: 10,
 					decision_deposit: 5 * DOLLARS,
 					prepare_period: 30 * MINUTES,
-					decision_period: 1 * DAYS,
-					confirm_period: 30 * MINUTES,
+					decision_period: 30 * MINUTES,
+					confirm_period: 10 * MINUTES,
 					min_enactment_period: 5 * MINUTES,
 					min_approval: pallet_referenda::Curve::LinearDecreasing {
 						length: Perbill::from_percent(100),
@@ -278,8 +278,8 @@ impl pallet_referenda::TracksInfo<Balance, BlockNumber> for TracksInfo {
 					max_deciding: 10,
 					decision_deposit: 5 * DOLLARS,
 					prepare_period: 30 * MINUTES,
-					decision_period: 1 * DAYS,
-					confirm_period: 30 * MINUTES,
+					decision_period: 30 * MINUTES,
+					confirm_period: 10 * MINUTES,
 					min_enactment_period: 5 * MINUTES,
 					min_approval: pallet_referenda::Curve::LinearDecreasing {
 						length: Perbill::from_percent(100),
@@ -300,8 +300,8 @@ impl pallet_referenda::TracksInfo<Balance, BlockNumber> for TracksInfo {
 					max_deciding: 10,
 					decision_deposit: 5 * DOLLARS,
 					prepare_period: 30 * MINUTES,
-					decision_period: 1 * DAYS,
-					confirm_period: 30 * MINUTES,
+					decision_period: 30 * MINUTES,
+					confirm_period: 10 * MINUTES,
 					min_enactment_period: 5 * MINUTES,
 					min_approval: pallet_referenda::Curve::LinearDecreasing {
 						length: Perbill::from_percent(100),
