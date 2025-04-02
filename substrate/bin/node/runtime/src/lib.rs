@@ -2501,10 +2501,10 @@ impl frame_benchmarking_pallet_pov::Config for Runtime {
 parameter_types! {
 	pub StatementCost: Balance = 1 * DOLLARS;
 	pub StatementByteCost: Balance = 100 * MILLICENTS;
-	pub const MinAllowedStatements: u32 = 4;
-	pub const MaxAllowedStatements: u32 = 10;
-	pub const MinAllowedBytes: u32 = 1024;
-	pub const MaxAllowedBytes: u32 = 4096;
+	pub const MinAllowedStatements: u32 = 400;
+	pub const MaxAllowedStatements: u32 = 1000;
+	pub const MinAllowedBytes: u32 = 102400;
+	pub const MaxAllowedBytes: u32 = 409600;
 }
 
 impl pallet_statement::Config for Runtime {
