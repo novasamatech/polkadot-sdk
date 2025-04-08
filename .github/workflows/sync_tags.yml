@@ -1,0 +1,36 @@
+name: Sync Tags from Upstream
+
+on:
+  workflow_dispatch:
+
+jobs:
+  sync-tags:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout fork
+        uses: actions/checkout@v4
+
+      - name: Get parent repository info
+        id: get-parent
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          response=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}")
+          
+          parent_repo=$(echo "$response" | jq -r '.parent.full_name')
+          
+          echo "parent_repo=$parent_repo" >> $GITHUB_OUTPUT
+
+      - name: Add upstream remote
+        run: |
+          OWNER=$(echo "${{ steps.get-parent.outputs.parent_repo }}" | cut -d/ -f1)
+          REPO=$(echo "${{ steps.get-parent.outputs.parent_repo }}" | cut -d/ -f2)
+          
+          git remote add upstream "https://github.com/${OWNER}/${REPO}.git"
+
+      - name: Fetch tags from upstream
+        run: git fetch upstream --tags
+
+      - name: Push tags to origin
+        run: git push origin --tags
